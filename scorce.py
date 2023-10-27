@@ -1,4 +1,5 @@
 import turtle
+import random
 
 grass=turtle.Screen()
 grass.bgpic("grass.gif")
@@ -20,12 +21,24 @@ food=turtle.Turtle()
 food.penup()
 food.color("red")
 food.shape("circle")
+food.speed(50)
 food.goto(100,10)
+
+pen=turtle.Turtle()
+pen.penup()
+pen.speed(50)
+pen.hideturtle()
+pen.goto(0,250)
+pen.write("score : 0",font=("courier",27,"bold"))
 
 
 
 def move():
-    snake.forward(1)
+   snake.forward(1)
+
+
+
+
       
 
 
@@ -60,11 +73,21 @@ turtle.onkeypress(right,"Right")
 turtle.onkeypress(left,"Left")
 turtle.listen()
 
+score=0
+
+
 
 while True:
-   move()
+    move()
    
+    if snake.distance(food) < 4:
+      x=random.randint(-285,285)
+      y=random.randint(-285,285)
+      food.setpos(x,y)
+      score=score+1
+      pen.clear()
+      pen.write("score : {}".format(score),font=("courier",27,"bold"))
 
 
-   
+
 turtle.done()
