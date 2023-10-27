@@ -25,7 +25,7 @@ food.goto(100,10)
 
 
 def move():
-    snake.forward(5)
+    snake.forward(1)
       
 
 
