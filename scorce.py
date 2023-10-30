@@ -87,7 +87,8 @@ while True:
       score=score+1
       pen.clear()
       pen.write("score : {}".format(score),font=("courier",27,"bold"))
-
+      body=turtle.Turtle()
+      body.shape("body.gif")
 
 
 turtle.done()
