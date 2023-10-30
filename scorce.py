@@ -1,6 +1,10 @@
 import turtle
 import random
 
+
+
+segment=()
+
 grass=turtle.Screen()
 grass.bgpic("grass.gif")
 grass.addshape("head up.gif")
@@ -36,10 +40,6 @@ pen.write("score : 0",font=("courier",27,"bold"))
 def move():
    snake.forward(1)
 
-
-
-
-      
 
 
 def up():
@@ -87,8 +87,27 @@ while True:
       score=score+1
       pen.clear()
       pen.write("score : {}".format(score),font=("courier",27,"bold"))
+     
+
       body=turtle.Turtle()
+      body.penup()
       body.shape("body.gif")
+      segment.append(body)
+
+
+    for i in range(len(segment)-1,0,-1):
+      x=segment[i-1].xcor()
+      y=segment[i-1].ycor()
+      segment[i].goto(x,y)
+
+    if len(segment)>0: 
+       x=snake.xcor()
+       y=snake.ycor()
+       segment[0].goto(x,y)
+
+    move()
+
+        
 
 
 turtle.done()
