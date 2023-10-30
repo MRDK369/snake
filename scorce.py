@@ -3,7 +3,7 @@ import random
 
 
 
-segment=()
+segment=[]
 
 grass=turtle.Screen()
 grass.bgpic("grass.gif")
@@ -16,6 +16,7 @@ grass.addshape("body.gif")
 
 snake=turtle.Turtle()
 snake.penup()
+snake.speed(0)
 snake.goto(0,0)
 snake.setheading(90)
 snake.shape("head up.gif")
@@ -92,7 +93,9 @@ while True:
       body=turtle.Turtle()
       body.penup()
       body.shape("body.gif")
+      body.speed(0)
       segment.append(body)
+      
 
 
     for i in range(len(segment)-1,0,-1):
@@ -100,7 +103,7 @@ while True:
       y=segment[i-1].ycor()
       segment[i].goto(x,y)
 
-    if len(segment)>0: 
+    if len(segment)> 0: 
        x=snake.xcor()
        y=snake.ycor()
        segment[0].goto(x,y)
