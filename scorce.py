@@ -79,6 +79,19 @@ score=0
 
 
 while True:
+
+    grass.update()
+    if snake.xcor()>290 or snake.xcor()<-290 or snake.ycor()>290 or snake.ycor()<-290 :
+       grass.bgpic("OVER.gif")
+       food.hideturtle()
+
+    for i in segment:
+       if i.distance(snake)<1:
+          grass.bgpic("OVER.gif")   
+          food.hideturtle()
+       
+
+
     move()
    
     if snake.distance(food) < 4:
@@ -113,4 +126,4 @@ while True:
         
 
 
-turtle.done()
+#turtle.done()
