@@ -74,7 +74,7 @@ turtle.onkeypress(right,"Right")
 turtle.onkeypress(left,"Left")
 turtle.listen()
 
-score=0
+score=0,
 
 
 
